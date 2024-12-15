@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            background-color: #0e1c35;
+        height:1000px;
+    width:100%}
+        .nav{
+            color:black;
+            padding:10px;
+            font-size: 10px;
+            height:50px;
+            width:100%;
+           /*background-color: #0e1c35;*/
+            font-style: normal;
+            margin-left:0px;
+            top:0;
+            background:url("/back11.jpg");
+  background-size: cover;
+   background-repeat: no-repeat;
+  height:800px;
+           
+          
+        
+        }
+        hr{
+            background-color: antiquewhite;
+            border-radius: 12px;
+        }
+        #navbar button{
+            padding-right:30px;
+            background-color: #0e1c35;
+            color:white;
+            font-style: italic;
+        
+        
+        }
+        #navbar{
+            padding-top: 10px;
+            padding-left: 30px;
+        }
+        a{
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+    font-size: large;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 50px;
+ }
+        .container{
+           
+            height:300px;
+            width:100%;
+            padding:50px;
+            border-style: dotted;
+            margin-top: 70px;
+            
+            text-align: center;
+        
+ }
+ .container img{
+    height:200px;
+    width:300px;
+    padding:0px;
+    border-style: dashed;
+    margin-top: 50px;
+    
+ }
+ body{
+   /*background-color: #0e1c35;*/
+
+
+   
+ }
+ .backk{
+    
+   
+ }
+ .back{
+            background-color:rgb(203, 203, 203);
+            width:60%;
+            height:800px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-width: 10px;
+            border:dashed;
+            border-radius: 15px;
+            padding:10px;
+            margin: auto;
+            overflow-y: scroll;
+        }
+        .table{
+            padding:35px;
+        }
+        .kl{
+            padding:15px;
+            text-align: center;
+            font-family: sans-serif;
+            font-style: oblique;
+        }
+        .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 3rem;
+  background-color: #0e1c35;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin: 2rem;
+  padding: 3rem;
+  width: 300px; /* Adjust width as needed */
+}
+
+.card-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-body,
+.card-footer {
+  padding: 0.75rem 1.25rem;
+}
+body{
+    background-color: #0e1c35;
+}
+.search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    gap: 30px;
+}
+.search input{
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    padding: 0px 20px;
+    font-size: 15px;
+}
+.search button{
+    width: 80px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background-color: royalblue;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+.flatimage{
+    padding:  0px 50px;
+    margin-top: 100px;
+    width: 80%;
+    display: flex;
+    gap:40px;
+}
+.flatimage .image{
+    width: 33.33%;
+    height: 400px;
+}
+.flatimage .image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: 0.5s all ease;
+    opacity: 0.8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.image img:hover{
+    scale: 1.1;
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <nav id="navbar">
+             <a th:href = "@{/flats}">FLATS</a>
+             <a  th:href="@{/ai}">AI</a>
+             <a th:href="@{/api/predict}">SMART PRICE PREDICTOR</a>
+    </nav>
+    <hr>
+    <div class="search">
+      <input type="text" placeholder="Search Area">
+      <button>Search</button>
+  </div>
+  <div class="flatimage">
+    <div class="image">
+        <img src="/b2323.jpg" alt="">
+        
+    </div>
+    <div class="image">
+        <img src="/3421.avif" alt="">
+        
+    </div>
+    <div class="image">
+        <img src="/12344.jpg" alt="">
+        
+    </div>
+</div>
+
+    </div>
+    <div class="card-container">
+        <div th:each="pro: ${product}" class="card">
+          <div class="card-header">
+            <h3 class="card-title">Flat ID: <span th:text="${pro.id}"></span></h3>
+          </div>
+          <div class="card-body">
+            <p>Flat Number: <span th:text="${pro.flatnumber}"></span></p>
+            <p>Address: <span th:text="${pro.address}"></span></p>
+            <p>Size: <span th:text="${pro.size}"></span></p>
+            <p>Number of Rooms: <span th:text="${pro.numberofrooms}"></span></p>
+            <p>Amenities: <span th:text="${pro.amenities}"></span></p>
+            <p>Rent: <span th:text="@{'₹' +${pro.rent}}"></span></p>
+            <p>Security Deposit: <span th:text="@{'₹ ' +${pro.securitydeposit}}"></span></p>
+            <p>Status: <span th:text="${pro.status}"></span></p>
+          </div>
+          <div class="card-footer">
+            <a th:href="@{'/images/' + ${pro.imagefile}}" alt="..." class="btn btn-primary">View Images</a>
+          </div>
+        </div>
+      </div>
+    
+
+    
+   
+    
+</body>
+</html>

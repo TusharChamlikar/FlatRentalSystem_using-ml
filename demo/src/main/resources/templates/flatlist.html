@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+    <style>
+        body {
+            background-color: rgb(200, 215, 227);
+            background-size: cover;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            width:1000px;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: rgb(203, 203, 203);
+            width: 70%;
+            margin-top: 50px;
+            
+            border-color: antiquewhite;
+            padding: 15px;
+            padding-left: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-style: oblique;
+        }
+
+        .card img {
+            width: 50%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .card a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+       .nav li {
+        text-decoration: none;
+        
+       
+       }
+       .nav1{
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+    font-size: large;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 50px;
+    margin-right: auto;
+ }
+ .nav{
+    margin-right: auto;
+ }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a class="nav1" th:href="@{/}">BACK</a>
+        <a class="nav1" th:href="@{/postflat}">POST PROPERTY</a>
+    </div>
+    <div class="container">
+        <div class="card" th:each="pro: ${product}">
+            <img th:src="@{'/images/' + ${pro.imagefile}}" alt="Property Image">
+            <h3 th:text="'Flat ' + ${pro.flatnumber}">Flat Number</h3>
+            <p><strong>Address:</strong> <span th:text="${pro.address}"></span></p>
+            <p><strong>Size:</strong> <span th:text="${pro.size} + ' sq ft'"></span></p>
+            <p><strong>Rooms:</strong> <span th:text="${pro.numberofrooms}"></span></p>
+            <p><strong>Amenities:</strong> <span th:text="${pro.amenities}"></span></p>
+            <p><strong>Rent:</strong> <span th:text="'₹' + ${pro.rent}"></span></p>
+            <p><strong>Security Deposit:</strong> <span th:text="'₹' + ${pro.securitydeposit}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${pro.status}"></span></p>
+            <a th:href="@{'/images/' + ${pro.imagefile}}">View Image</a>
+        </div>
+    </div>
+</body>
+</html>

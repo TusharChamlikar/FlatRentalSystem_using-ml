@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("/artificial-intelligence.jpg");
+
+        }
+        .container{
+            border-width: 10px;
+            border:solid;
+            background-image: url("/artificial-intelligence.jpg");
+            width:50%;
+            height:500px;
+            margin-top: 110px;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            
+        }
+        .main{
+            margin-top: 150px;
+         
+            
+        }
+        .broker{
+            margin-top: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="broker">BROKER AI</h1>
+        <div class="main">
+        <form action="#"  th:action="@{/ai}" th:object="${value}" method="post">
+            <div class="ques">
+                <label>Enter Your Query</label>
+                <input class="form-control" type="text" th:field="${value.ai}">
+            </div>
+            <button  class ="submit" type="submit">Submit</button>
+        </form></div>
+    </div>
+</body>
+</html>

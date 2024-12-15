@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #042b69;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #042b69;
+            border: 10px double antiquewhite;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            color: bisque;
+        }
+
+        .container label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .container input:focus {
+            border-color: #042b69;
+            outline: none;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #042b69;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .container button:hover {
+            background-color: #03528d;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+ </style>   
+</head>
+<body>
+    
+    <div><h1>SMART PRICE PREDICTOR</h1></div>
+    <div class="container">
+        <form action="#"  th:action="@{/api/predict}" th:object="${cred}" method="post">
+            <div class="name">
+                <label>Enter Your house Type</label>
+                <input class="form-control" type="text" th:field="${cred.house}">
+            </div>
+            <div class="pass">
+                <label>Enter Your housesize</label>
+                <input class="form-control" type="number" th:field="${cred.housesize}">
+            </div>
+            <div class="mob">
+                <label>Enter Yourlocation</label>
+                <input class="form-control" type="text" th:field="${cred.location}">
+            </div>
+            <div class="username1">
+                <label>Enter Your city</label>
+                <input class="form-control" type="text" th:field="${cred.city}">
+            </div>
+            <div class="pass">
+                <label>Enter amenities</label>
+                <input class="form-control" type="text" th:field="${cred.amenities}">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

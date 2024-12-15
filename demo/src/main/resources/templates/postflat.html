@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" th:action="@{/postflat}" th:object="${product}" method="post">
+        <div class="name">
+            <label>Enter FlatNumber</label>
+            <input class="form-control" type="text" th:field="${product.flatnumber}">
+        </div>
+        <div class="pass">
+            <label>Enter Address</label>
+            <input class="form-control" type="text" th:field="${product.address}">
+        </div>
+        <div class="mob">
+            <label>Enter Number of Rooms</label>
+            <input class="form-control" type="text" th:field="${product.numberofrooms}">
+        </div>
+        <div class="username1">
+            <label>Enter Amenities</label>
+            <input class="form-control" type="text" th:field="${product.amenities}">
+        </div>
+        <div class="pass">
+            <label>Enter Rent</label>
+            <input class="form-control" type="text" th:field="${product.rent}">
+        </div>
+        <div class="pass">
+            <label>Enter Security Deposit</label>
+            <input class="form-control" type="text" th:field="${product.securitydeposit}">
+        </div>
+        <div class="pass">
+            <input class="form-control" type="text" th:field="${product.status}">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #8bb3f3;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ccc;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background-color: rgba(4, 43, 105, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: bisque;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-control:focus {
+            border-color: #042b69;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #042b69;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #03528d;
+        }
+
+        button:active {
+            background-color: #03365d;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div><h1>SINGNUP</h1></div>
+        <form action="#"  th:action="@{/signup}" th:object="${cred}" method="post">
+            <div class="name">
+                <label>Enter Your Name</label>
+                <input class="form-control" type="text" th:field="${cred.firstname}">
+            </div>
+            <div class="pass">
+                <label>Enter Your lastname</label>
+                <input class="form-control" type="text" th:field="${cred.lastname}">
+            </div>
+            <div class="mob">
+                <label>Enter Your MobileNumber</label>
+                <input class="form-control" type="text" th:field="${cred.mobilenumber}">
+            </div>
+            <div class="username1">
+                <label>Enter Your UserName</label>
+                <input class="form-control" type="text" th:field="${cred.username}">
+            </div>
+            <div class="pass">
+                <label>Enter Password</label>
+                <input class="form-control" type="text" th:field="${cred.password}">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
